@@ -31,8 +31,11 @@ namespace RitualCore.Controllers
                 var filename = Guid.NewGuid() + Path.GetExtension(pistures.FileName);
                 string uploadsFolder = Path.Combine(Environment.WebRootPath, "uploads");
                 string filePath = Path.Combine(uploadsFolder, filename);
-                using var fileStream = new FileStream(filePath, FileMode.Create);
-                await pistures.CopyToAsync(fileStream);
+                //using (var fileStream = new FileStream(filePath, FileMode.Create)) 
+                //{
+                //    await picture.CopyToAsync(fileStream);
+                //}
+                //await pistures.CopyToAsync(fileStream);
                 Picture dbPicture = new Picture
                 {
                     Url = filename

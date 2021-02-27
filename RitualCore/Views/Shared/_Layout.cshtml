@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/assets/css/AboutCss/about.css">
     <link rel="stylesheet" href="~/assets/css/BlogCss/blog.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.js">
     <link rel="stylesheet" href="ContactPage/ContactCss/contact.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -33,37 +33,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Home/About">About</a>
+                        <a class="nav-link" href="#">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blogs</a>
+                        <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto nav-flex-icons">
-                    <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link waves-effect waves-light">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link waves-effect waves-light">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link waves-effect waves-light">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </li>
-                </ul>
+
             </div>
         </nav>
         <!--/Nav -->
@@ -74,25 +53,92 @@
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
-    <footer id="footer " class="bg-dark p-2">
-        <div class="container-fluid">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-2 col-4">
-                    <div class="footer-logo">
-                    </div>
-                    <div class="col-lg-3 col-4">
-                        <div class="social-ico text-center">
+    <footer id="siteFooter" style="background:white;">
+        <div class="container">
+            <div class="row">
+                <div class="flex-container flex-space-between flex-start">
+                    <div class="flex-container flex-space-between flex-col-6 flex-start">
+                        <div class="col-lg-4">
+                            <div class="item">
+                                <h4>
+                                    Pages
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <a href="index.html" target="_blank">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="about.html" target="_blank">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="blog.html" target="_blank">Blogs</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html" target="_blank">Contact</a>
+                                    </li>
 
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="item">
+                                <h4>
+                                    Social
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <a href="" https: //www.instagram.com/gunelasd/" target="_blank">Instagram</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/nermin-agazade-77a815206/" target="_blank">Linkedin</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/results?search_query=gunel+asd" target="_blank">Youtube</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/NerminAgazade" target="_blank">GitHub</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row-cols-lg-4">
+
+                            <div class="item">
+                                <h4>
+                                    Activity
+                                </h4>
+                                <ul class="footer-social-icons list-center">
+                                    <li>
+                                        <a href="https://www.instagram.com/gunelasd/" target="_blank"<i class="fab fa-instagram"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/results?search_query=gunel+asd" target="_blank"><i class="fab fa-youtube"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/NerminAgazade" target="_blank"><i class="fab fa-github-square"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/nermin-agazade-77a815206/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 text-white text--sm-right mt-3 mt-sm-0">
+                    <div class="item flex-col-4">
+                        <div class="flex-container">
+                            <input type="email" name="subscribe" class="form-control flex-block" placeholder="Subscribe to our channel" required>
+                            <button class="btn btn-dark" id="Suscribe">Sign Up</button>
+                        </div>
+                        <div class="flex-container" style="margin-top:20px;line-height:130%;">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>                   
+                </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery-3.5.1.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/app.js "></script>
     <script src="~/assets/js/blog.js "></script>
     <script src="~/assets/js/about.js "></script>

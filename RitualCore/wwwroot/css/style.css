@@ -1,5 +1,5 @@
 body {
-  background-color: #ba99c4;
+    background-color:antiquewhite;
 }
 
 header .navbar {
@@ -103,11 +103,57 @@ span {
     border-color: transparent;
   }
 }
+.ilk h3 {
+    color: blueviolet;
+    margin-left: 600px;
+    margin-top:60px;
+    margin-bottom:50px;
+}
+.product-item .picture-title .pro-description h5 {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    color:darkslategray;
+    margin-top:18px;
+}
+.product-item .picture-title .pro-header {
+    color: darkorchid;
 
+}
+#top .item {
+    margin-bottom: 40px;
+}
+ .more {
+     margin-top:40px;
+    margin-left:550px;
+    cursor:pointer;
+}
+
+.more i{
+    color:orange;
+}
+.more a{
+    color:darkgreen;
+}
+.nav-depart {
+    font-size:larger;
+    width: 100vh;
+    color:blueviolet;
+}
+    .nav-depart li {
+        cursor: pointer;
+    }
+#top {
+    top: 100em;
+}
+
+.product-shop{
+    margin-top:10em;
+}
 #myCarousel .list-inline {
-  background-color: #a3ecf1;
-  white-space: nowrap;
-  overflow-x: auto;
+    background-color: #a3ecf1;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 #myCarousel .carousel-indicators {

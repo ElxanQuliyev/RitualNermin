@@ -4,9 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RitualCore.Data;
 using RitualCore.Models;
+using RitualCore.ViewModels;
 
 namespace RitualCore.Controllers
 {
@@ -22,7 +24,13 @@ namespace RitualCore.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.Pictures.ToList());
+            HomeVM vm = new HomeVM()
+            {
+                Videos = _context.Viseoapics.Include("Picture").Where(x=>x.IsFeatured).OrderByDescending(x=>x.Id)
+                .Take(6).ToList()
+
+            };
+            return View(vm);
         }
 
         public IActionResult About()

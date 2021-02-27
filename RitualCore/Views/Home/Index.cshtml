@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@model HomeVM
 <section class="ritual-slider">
     <!--  start layer 1  -->
     <div class="container-fluid">
@@ -24,117 +24,282 @@
 </section>
 <br>
 <br>
-<br>
-<!-- Slider -->
-<div class="container py-2">
-    <div class="row min-vh-100 align-items-center">
-        <div class="col-lg-8 offset-lg-2" id="slider">
-            <div id="myCarousel" class="carousel slide shadow">
-                <!-- main slider carousel items -->
-                <div class="carousel-inner">
-                    <div class="active carousel-item" data-slide-number="0">
-                        <img src="Uploads/image/slider-img-1.jpeg" class="img-fluid">
-                    </div>
-                    <div class="carousel-item" data-slide-number="1">
-                        <img src="Uploads/image/slider-img-2.jpeg" class="img-fluid">
-                    </div>
-                    <div class="carousel-item" data-slide-number="2">
-                        <img src="Uploads/image/slider-img-3.jpeg" class="img-fluid">
-                    </div>
-                    <div class="carousel-item" data-slide-number="3">
-                        <img src="Uploads/image/slider-img-4.jpeg" class="img-fluid">
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+        <div class="nav-depart" >
+            <div class="depart-btn">
+                <i class="fas fa-bars"></i>
+                <span>Rituallar</span>
+                <ul class="depart-hover list-unstyled p-0">
+                    <li>
+                        <a style="font-weight:700">
+                            <img style="margin-right:10px" width="30" src="Uploads/image/subconscious_mind_control.jpg" />
+                            Su Ritualları
+                        </a>
 
-                </div>
-                <!-- main slider carousel nav controls -->
+                    </li>
 
+                    <li>
+                        <a style="font-weight:700" >
+                            <img style="margin-right:10px" width="30" src="Uploads/image/pulritual.jpg" />
+                            Pul Ritualları
+                        </a>
 
-                <ul class="carousel-indicators list-inline mx-auto border px-1">
-                    <li class="list-inline-item active">
-                        <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
-                            <img src="Uploads/image/slider-img-1.jpeg" class="img-fluid">
-                        </a>
                     </li>
-                    <li class="list-inline-item">
-                        <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
-                            <img src="Uploads/image/slider-img-2.jpeg" class="img-fluid">
+                    <li>
+                        <a style="font-weight:700" >
+                            <img style="margin-right:10px" width="30" src="Uploads/image/yuxurituali.jpg" />
+                            Yuxu Ritualları
                         </a>
+
                     </li>
-                    <li class="list-inline-item">
-                        <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
-                            <img src="Uploads/image/slider-img-3.jpeg" class="img-fluid">
+                    <li>
+                        <a style="font-weight:700" >
+                            <img style="margin-right:10px" width="30" src="Uploads/image/barmaqgucu.gif" />
+                            Barmaqlarımızın Gücü
                         </a>
+
                     </li>
-                    <li class="list-inline-item">
-                        <a id="carousel-selector-3" data-slide-to="3" data-target="#myCarousel">
-                            <img src="Uploads/image/slider-img-4.jpeg" class="img-fluid">
+                    <li>
+                        <a style="font-weight:700" >
+                            <img style="margin-right:10px" width="30" src="Uploads/image/mesajyazdirma.jpg" />
+                            Mesaj Yazdırma Ritualları
                         </a>
+
+                    </li>
+                    <li>
+                        <a style="font-weight:700">
+                            <img style="margin-right:10px" width="30" src="Uploads/image/subconscious_mind_control.jpg" />
+                            Su Ritualları
+                        </a>
+
+                    </li>
+                    <li>
+                        <a style="font-weight:700">
+                            <img style="margin-right:10px" width="30" src="Uploads/image/işritual.jpg" />
+                            Sevgi Ritualları
+                        </a>
+
+                    </li>
+                    <li>
+                        <a style="font-weight:700">
+                            <img style="margin-right:10px" width="30" src="Uploads/image/işritual.jpg" />
+                            İş Ritualları
+                        </a>
+
+                    </li>
+                    <li>
+                        <a style="font-weight:700" >
+                            <img style="margin-right:10px" width="30" src="Uploads/image//yeniayritual.jpg" />
+                            Yeni Ay Ritualları
+                        </a>
+
                     </li>
 
                 </ul>
             </div>
         </div>
+        </div>
 
-    </div>
-    <!--/main slider carousel-->
+        <!-- Slider -->
+        <div class="col-lg-8">
+                        <div id="myCarousel" class="carousel slide shadow">
+                            <!-- main slider carousel items -->
+                            <div class="carousel-inner">
+                                @{ int count = 0;}
+                                @foreach (var video in Model.Videos)
+                                {
+                                    <div class="@(count == 0 ? "active" : "") carousel-item" data-slide-number="@count">
+                                        <a href="https://youtu.be/@video.YoutubeLink" target="_blank">
+
+                                            <img src="Uploads/@video.Picture.Url" class="img-fluid">
+                                        </a>
+                                    </div>
+                                    count++;
+                                }
+                            </div>
+                            <!-- main slider carousel nav controls -->
+
+
+                            <ul class="carousel-indicators list-inline mx-auto border px-1">
+                                @{ int count2 = 0;}
+                                @foreach (var video in Model.Videos)
+                                {
+                                    <li class="list-inline-item @(count2 == 0 ? "active" : "")">
+                                        <a id="carousel-selector-@count2" class="selected" data-slide-to="@count2" data-target="#myCarousel">
+                                            <img src="Uploads/@video.Picture.Url" class="img-fluid">
+                                        </a>
+                                    </li>
+                                    count2++;
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--/main slider carousel-->
+      
+
+<div class="ilk">
+    <h3>Ən son əlavə olunanlar</h3>
 </div>
-<!--/ Slider -->
-<br>
-<br>
-<br>
-<!-- About-->
-<div class="CSSslider">
-    <div class="CSSslider-slider-container">
-        <div class="CSSslider-carousel">
-            <input class="CSSslider-carousel_radio" type="radio" id="CSSslider-carousel-1" name="CSSslider-carousel[]" checked>
-            <input class="CSSslider-carousel_radio" type="radio" id="CSSslider-carousel-2" name="CSSslider-carousel[]">
-            <!-- <input class="CSSslider-carousel_radio" type="radio" id="CSSslider-carousel-3" name="CSSslider-carousel[]"> -->
-            <ul class="CSSslider-carousel__items">
-                <li class="CSSslider-carousel__item">
-                    <div class="CSSslider-slider-One">
-                        <h5 class="CSSslider-slider-title">Ilk öncə inam! ​</h5>
-                        <h5 class="CSSslider-slider-subtitle">Hər şey ilk öncə inanmaqla başlayır.İnanmaq bacarmağın yarısıdır.Zehinlə inamağa başladıqda hər şey daha da asanlaşır.<br></h5>
-                        <div class="CSSslider-slider-text">
-                            <div class="CSSslider-slider-item">Bu tək rituallar üçün deyil bütün həyatımıız üçün keçərlidir.</div>
+<section id="top" class="spad d-none d-sm-block">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="item">
+                    <div class="product-item">
+                        <div class="picture">
+                            <img src="Uploads/image/slider-img-1.jpeg" class="img-fluid">
                         </div>
-                    </div><!-- CSSslider-slider-One -->
-                    </spam>
-                </li>
-                <li class="CSSslider-carousel__item">
-                    <div class="CSSslider-slider-Two">
-                        <h5 class="CSSslider-slider-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi aliquam, hic nesciunt dolorem deleniti magni atque nisi a voluptatum sint excepturi voluptates ipsum obcaecati nam. Aliquam blanditiis recusandae error officia? ​</h5>
-                        <div class="CSSslider-slider-text">
-                            <div class="CSSslider-slider-item">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius obcaecati neque velit provident, at recusandae doloribus! Voluptatem quae harum repellendus, maiores provident suscipit aliquam deserunt voluptatum excepturi molestias, doloribus numquam!</div>
-                            <!-- <ul>
-                                <li><spam>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi ipsum aliquid nobis neque non sint maxime hic! Amet minus voluptas omnis iure consequatur et incidunt laborum, corporis, optio, in voluptatum?</spam></li>
-                                <li><spam>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, iste incidunt, reiciendis nulla distinctio earum ipsa libero laudantium aspernatur nobis nihil sapiente labore blanditiis consequuntur facere ullam odit. Inventore, quaerat.</spam></li>
-                                <li><spam>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus doloribus vitae repudiandae, eaque delectus nostrum, eos id ipsam itaque soluta, dolorem expedita facere. Deleniti fugit sequi maiores iste illum laudantium.</spam></li>
-                                <li><spam>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic optio id, officia numquam sequi, quibusdam neque rerum maiores, mollitia iusto porro quam qui distinctio eius adipisci illo eos ex exercitationem.</spam></li>
-                            </ul> -->
+                        <div class="picture-title">
+                            <div class="pro-header">
+
+                                Arzularınız Və İstəkləriniz Bir Anda Gərçəkləşsin! | Barmaq Ucu Ritualı | (YOXLANILDI)
+                            </div>
+                            <div class="pro-description">
+                                <h5>
+                                    Bu videomda sizlərə barmaqlarınızdan istifadə edərək, istədiyiniz an necə arzularınızı, istəklərinizi gərçəkləşdirə bilərsiz onu izah edirəm.
+                                </h5>
+                            </div>
                         </div>
-                    </div><!-- CSSslider-slider-Two -->
-                    </spam>
-                </li>
-            </ul>
-            <div class="CSSslider-carousel__prev">
-                <label for="CSSslider-carousel-1"></label>
-                <label for="CSSslider-carousel-2"></label>
-                <label for="CSSslider-carousel-3"></label>
+
+                    </div>
+                </div>
             </div>
-            <div class="CSSslider-carousel__next">
-                <label for="CSSslider-carousel-1"></label>
-                <label for="CSSslider-carousel-2"></label>
-                <label for="CSSslider-carousel-3"></label>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item">
+                    <div class="product-item">
+                        <div class="picture">
+                            <img src="Uploads/image/slider-img-2.jpeg" class="img-fluid">
+                        </div>
+                        <div class="picture-title">
+                            <div class="pro-header">
+
+                                İmtahandan Keçməyin Ən Asan Yolu | Kəsrlərə Son! | İmtahan Ritualı (YOXLANILDI)
+
+                            </div>
+                            <div class="pro-description">
+                                <h5>
+                                    İmtahandan Keçməyin Ən Asan Yolu!
+                                    Artıq kəsrlərinizdən sizdə bezdizsə, yada birdən imtahanda bilmədiyim sual düşəcək deyə qorxurduzsa buna son vermək vaxtıdır. Bu videomda sizlərə özümün də yoxladığı və işə yarayan bir yolu paylaşıram. Umid edirəm ki, videonu bəyənərsiz və işinizə yarıyar.
+                                </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="CSSslider-carousel__nav">
-                <label for="CSSslider-carousel-1"></label>
-                <label for="CSSslider-carousel-2"></label>
-                <label for="CSSslider-carousel-3"></label>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="item">
+                    <div class="product-item">
+                        <div class="picture">
+                            <img src="Uploads/image/slider-img-3.jpeg" class="img-fluid">
+                        </div>
+                        <div class="picture-title">
+                            <div class="pro-header">
+
+                                Başqasının Yuxusuna Girin! Yuxu Ritualı (YOXLANILDI!)
+                            </div>
+                            <div class="pro-description">
+                                <h5>
+                                    Salam hərkəsə. Kanalımın ilk videosunu sizlərlə paylaşıram. Videoda başqasının yuxusuna girmək necə olar o izah edilib. İzlədiyiniz üçün təşəkkürlər.
+
+                                    Videonu xoşunuza gəldisə dəstək olmaq adına bəyənməyi və abone olmağı unutmayın.
+                                    Digər videolar üçün takibdə qalın.
+                                </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item">
+                    <div class="product-item">
+                        <div class="picture">
+                            <img src="Uploads/image/slider-img-4.jpeg" class="img-fluid">
+                        </div>
+                        <div class="picture-title">
+                            <div class="pro-header">
+
+                                İstədiyin İnsana Mesaj Yazdırmaq! İstədiyin İnsan Sənə Mesaj Yazsın! (KAĞIZ RİTUALI İLƏ MESAJ ATDIR)
+                            </div>
+                            <div class="pro-description">
+                                <h5>
+                                    Istədiyiniz insana mesaj atdırmaq bu videonu izlədikdən sonra çox asandır.  Sizlərə küsülü olduğunuz və ya heç əlaqəniz olmadığı və ya da hər hansı fərqli səbəblərdən danışmadığınız birinə necə mesaj yazdıra bilərsiz onu izah etmişəm. Umid edirəmki videonu bəyənərsiz və yararlı olar.
+                                </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item">
+                    <div class="product-item">
+                        <div class="picture">
+                            <img src="Uploads/image/pulritual.jpg" class="img-fluid">
+                        </div>
+                        <div class="picture-title">
+                            <div class="pro-header">
+
+                                1 İlə 1 Milyon Qazanmaq! | Bu Yol İlə Pulu Özünüzə Çəkin | Pul Ritualı! (YOXLANILMIŞ YOL)
+                            </div>
+                            <div class="pro-description">
+                                <h5>
+                                    Bu videomda sizlərə Jack Canfield-ın da yoxladığı və nəticə gördüyü, özümüzə pul çəkmək üçün etməli olduğumuz ritual haqqında məlumat paylaşmışam.
+                                </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item">
+                    <div class="product-item">
+                        <div class="picture">
+                            <img src="Uploads/image/sevgiritual.webp" class="img-fluid">
+                        </div>
+                        <div class="picture-title">
+                            <div class="pro-header">
+
+                                Bu Ritual İlə İŞ, SEVGİ, PUL Həyatınızda Uğur Qazanın! | 5-55 Ritualı |
+                            </div>
+                            <div class="pro-description">
+                                <h5>
+                                    Bu videomda sizlərə bütün diləkləriniz üçün-pul,iş,sevgi həyatınızda edə biləcəyiniz 5-55 ritualını (metodunu) necə edə bilərsiz onu izah etmişəm.
+                                </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="extra">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="more">
+                <i class="fas fa-search-plus"></i>
+                <a>Daha çox videoya baxın</a>
             </div>
         </div>
     </div>
 </div>
-<button class="btn">Read More</button>
+
+<!--/ Slider -->
+<br>
+<br>
+<!-- About-->
 <!-- /About -->
 
 <br>
