@@ -136,12 +136,12 @@ span {
     color:darkgreen;
 }
 .nav-depart {
-    font-size:larger;
-    width: 100vh;
+    font-size:16px;
     color:blueviolet;
 }
     .nav-depart li {
         cursor: pointer;
+        line-height:40px;
     }
 #top {
     top: 100em;

@@ -122,7 +122,7 @@ namespace RitualCore.Areas.Dashboard.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CategoryId,PictureID,IsFeatured")] Viseoapic viseoapic,IFormFile Photo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,CategoryId,YoutubeLink,PictureID,IsFeatured")] Viseoapic viseoapic,IFormFile Photo)
         {
             if (id != viseoapic.Id)
             {

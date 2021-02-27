@@ -9,6 +9,8 @@ namespace RitualCore.ViewModels
     public class HomeVM
     {
         public List<Viseoapic> Videos { get; set; }
+        public List<Category> Categories{ get; set; }
 
+        public Viseoapic Video { get; set; }
     }
 }
